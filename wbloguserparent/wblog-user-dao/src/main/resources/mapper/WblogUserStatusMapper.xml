@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wblog.user.mapper.WblogUserStatusMapperr">
+    <resultMap id="WblogUserStatus" type="com.wblog.user.pojo.WblogUserStatus">
+        <result property="id" column="id"/>
+        <result property="likeCount" column="like_count"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="blogCount" column="blog_count"/>
+        <result property="fansCount" column="fans_count"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifyTime" column="modify_time"/>
+        <result property="likedCount" column="liked_count"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <!-- 所有字段 -->
+    <sql id="allColumns">
+        id,
+        <include refid="noIdColumns"/>
+    </sql>
+
+    <!-- api字段-->
+    <sql id="noIdColumns">
+        nick_name,comment_count,like_count,blog_count,fans_count,liked_count,status,create_time,modify_time
+    </sql>
+
+    <sql id="condition">
+        <if test="nickName != null and nickName != ''">
+            and wu.nick_name = #{nickName}
+        </if>
+    </sql>
+    <select id="findByCondition" resultMap="WblogUserStatus" parameterType="com.wblog.user.query.WblogUserStatusQuery">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user_status as wu
+        where
+        1=1
+        <include refid="condition"></include>
+    </select>
+    <select id="findByConditionByPage" resultMap="WblogUserStatus" parameterType="com.wblog.user.query.WblogUserStatusQuery">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user_status as wu
+        where
+        1=1
+        <include refid="condition"></include>
+        limit #{startRow},#{pageSize}
+    </select>
+    <select id="findById" resultMap="WblogUserStatus" parameterType="java.lang.Integer">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user_status as wu
+        where
+        wu.id =#{id}
+    </select>
+    <insert id="insertUserStatus" timeout="1" parameterType="com.wblog.user.pojo.WblogUserStatus" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        wblog_user_status (<include refid="noIdColumns"></include>)
+        values
+        (#{nickName},#{commentCount},#{likeCount},#{blogCount},#{fansCount},#{likedCount},#{status},now(),now())
+    </insert>
+    <update id="updateUserStatus" parameterType="com.wblog.user.pojo.WblogUserStatus">
+        update
+        wblog_user_status
+        set
+        nick_name =#{nickName},
+        comment_count = #{commentCount},
+        like_count = #{likeCount},
+        blog_count = #{blogCount},
+        fans_count = #{fansCount},
+        liked_count = #{likedCount},
+        status = #{status},
+        modify_time = now()
+        where
+        id = #{id}
+    </update>
+</mapper>

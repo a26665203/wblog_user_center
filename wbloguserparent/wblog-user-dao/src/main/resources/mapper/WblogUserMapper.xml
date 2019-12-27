@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wblog.user.mapper.WblogUserMapper">
+    <resultMap id="WblogUser" type="com.wblog.user.pojo.WblogUser">
+        <result property="id" column="id"/>
+        <result property="userAccount" column="user_account"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifyTime" column="modify_time"/>
+        <result property="userRole" column="user_role"/>
+    </resultMap>
+
+    <!-- 所有字段 -->
+    <sql id="allColumns">
+        id,
+        <include refid="noIdColumns"/>
+    </sql>
+
+    <!-- api字段-->
+    <sql id="noIdColumns">
+        nick_name,user_account,user_password,email,phone,modify_time,create_time,user_role
+    </sql>
+
+    <sql id="condition">
+        <if test="nickName != null and nickName != ''">
+            and wu.nick_name = #{nickName}
+        </if>
+        <if test="userAccount != null and userAccount != ''">
+            and wu.user_account = #{userAccount}
+        </if>
+    </sql>
+    <select id="findByCondition" resultMap="WblogUser" parameterType="com.wblog.user.query.WblogUserQuery">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user as wu
+        where
+        1=1
+        <include refid="condition"></include>
+    </select>
+    <select id="findByConditionByPage" resultMap="WblogUser" parameterType="com.wblog.user.query.WblogUserQuery">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user as wu
+        where
+        1=1
+        <include refid="condition"></include>
+        limit #{startRow},#{pageSize}
+    </select>
+    <select id="findById" resultMap="WblogUser" parameterType="java.lang.Integer">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user as wu
+        where
+        wu.id =#{id}
+    </select>
+    <insert id="insertUser" timeout="1" parameterType="com.wblog.user.pojo.WblogUser" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        wblog_user (<include refid="noIdColumns"></include>)
+        values
+        (#{nickName},#{userAccount},#{userPassword},#{email},#{phone},now(),now(),#{userRole})
+    </insert>
+    <update id="updateUser" parameterType="com.wblog.user.pojo.WblogUser">
+        update
+        wblog_user
+        set
+        nick_name =#{nickName},
+        user_account = #{userAccount},
+        user_password = #{userPassword},
+        user_role = #{userRole},
+        email = #{email},
+        phone = #{phone},
+        modify_time = now()
+        where
+        id = #{id}
+    </update>
+</mapper>
