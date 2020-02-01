@@ -31,6 +31,9 @@
         <if test="userAccount != null and userAccount != ''">
             and wu.user_account = #{userAccount}
         </if>
+        <if test="userPassword != null and userPassword !=''">
+            and wu.user_password = #{userPassword}
+        </if>
     </sql>
     <select id="findByCondition" resultMap="WblogUser" parameterType="com.wblog.user.query.WblogUserQuery">
         select
