@@ -3,6 +3,7 @@ package com.wblog.user.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
+import redis.clients.util.RedisOutputStream;
 
 public class RedisUtil {
     public static Logger logger = LoggerFactory.getLogger(RedisUtil.class);
@@ -115,5 +116,37 @@ public class RedisUtil {
         return result;
     }
 
+    public static void hdel(String key){
+        Jedis jedis = null;
+        try{
+            jedis = RedisPool.getJedis();
+            jedis.hdel(key);
+        }
+        catch (Exception e){
+            logger.error("Redis.hdel.error--->{}",e);
+        }
+    }
+    public static void hset(String key ,String field,String value){
+        Jedis jedis = null;
+        try{
+            jedis = RedisPool.getJedis();
+            jedis.hset(key,field,value);
+        }catch (Exception e){
+            logger.error("Redis.hset.errpr---->{}",e);
+        }
+    }
+
+    public static String hget(String key,String field){
+        Jedis jedis = null;
+        String result= "error";
+        try{
+            jedis = RedisPool.getJedis();
+            result = jedis.hget(key,field);
+            return result;
+        }catch (Exception e){
+            logger.error("RedisUtil.hget.error-->{}",e);
+            return result;
+        }
+    }
 
 }

@@ -1,5 +1,7 @@
 package com.wblog.user.query;
 
+import com.wblog.user.pojo.WblogUserFriend;
+
 public class WblogUserFriendQuery {
     String nickName;
     String friendNickName;
@@ -22,7 +24,9 @@ public class WblogUserFriendQuery {
         this.pageSize = pageSize;
         setStartRow();
     }
+    public WblogUserFriendQuery(){
 
+    }
     public void setStartRow() {
         if(pageNo <= 0){
             this.startRow = 0;

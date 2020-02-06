@@ -40,15 +40,15 @@ public class WblogUserRopImpl implements WblogUserRpo {
         }
         final String account = query.getUserAccount();
         try {
-            String value = cache.get(account, () -> {
+            String value = cache.get(CommonConstant.WBLOB_USER_PREFIX+account, () -> {
                 String json = RedisUtil.get(CommonConstant.WBLOB_USER_PREFIX + account);
-                if (json != null || !"".equals(json)) {
+                if (json != null && !"".equals(json)) {
                     return json;
                 } else {
                     List<WblogUser> list = wblogUserMapper.findByCondition(query);
                     if (list.size() == 0) {
                         //防止缓存穿透
-                        RedisUtil.set(CommonConstant.WBLOB_USER_PREFIX + account, CommonConstant.WBLOB_CACHE_EMPTY);
+                        RedisUtil.setEx(CommonConstant.WBLOB_USER_PREFIX + account, CommonConstant.WBLOB_CACHE_EMPTY,3000);
                         return "";
                     }
                     WblogUser user = list.get(0);
@@ -56,6 +56,7 @@ public class WblogUserRopImpl implements WblogUserRpo {
                     BeanUtils.copyProperties(user, wblogUserInfo);
                     JSONObject object = (JSONObject) JSONObject.toJSON(wblogUserInfo);
                     RedisUtil.setEx(CommonConstant.WBLOB_USER_PREFIX + account, object.toJSONString(), 24 * 60 * 60);
+                    cache.put(CommonConstant.WBLOB_USER_PREFIX+account,object.toJSONString());
                     return object.toJSONString();
                 }
             });
