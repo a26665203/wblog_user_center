@@ -16,11 +16,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-
+@Service
 public class WblogUserRopImpl implements WblogUserRpo {
     Logger logger = LoggerFactory.getLogger(WblogUserRopImpl.class);
     @Autowired

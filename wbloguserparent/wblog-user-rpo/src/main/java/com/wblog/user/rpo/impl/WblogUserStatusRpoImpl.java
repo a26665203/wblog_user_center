@@ -5,7 +5,9 @@ import com.wblog.user.rpo.WblogUserStatusRpo;
 import com.wblog.user.util.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WblogUserStatusRpoImpl implements WblogUserStatusRpo {
     Logger logger = LoggerFactory.getLogger(WblogUserStatusRpoImpl.class);
 

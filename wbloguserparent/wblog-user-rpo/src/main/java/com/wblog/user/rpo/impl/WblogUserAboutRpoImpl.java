@@ -9,7 +9,9 @@ import com.wblog.user.util.RedisUtil;
 import org.omg.PortableInterceptor.INACTIVE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
     Logger logger = LoggerFactory.getLogger(WblogUserAboutRpoImpl.class);
     @Override
