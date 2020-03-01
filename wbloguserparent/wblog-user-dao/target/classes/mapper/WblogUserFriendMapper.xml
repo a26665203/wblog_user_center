@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wblog.user.mapper.WblogUserFriendMapper">
+    <resultMap id="WblogUserFriend" type="com.wblog.user.pojo.WblogUserFriend">
+        <result property="id" column="id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="friendNickName" column="friend_nick_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifyTime" column="modify_time"/>
+    </resultMap>
+
+    <!-- 所有字段 -->
+    <sql id="allColumns">
+        id,
+        <include refid="noIdColumns"/>
+    </sql>
+
+    <!-- api字段-->
+    <sql id="noIdColumns">
+        nick_name,friend_nick_name,modify_time,create_time
+    </sql>
+
+    <sql id="condition">
+        <if test="nickName != null and nickName != ''">
+            and wu.nick_name = #{nickName}
+        </if>
+        <if test="friendNickName != null and friendNickName != ''">
+            and wu.friend_nick_name = #{friendNickName}
+        </if>
+    </sql>
+    <select id="findByCondition" resultMap="WblogUserFriend" parameterType="com.wblog.user.query.WblogUserFriendQuery">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user_friend as wu
+        where
+        1=1
+        <include refid="condition"></include>
+    </select>
+    <select id="findByConditionByPage" resultMap="WblogUserFriend" parameterType="com.wblog.user.query.WblogUserFriendQuery">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user_friend as wu
+        where
+        1=1
+        <include refid="condition"></include>
+        limit #{startRow},#{pageSize}
+    </select>
+    <select id="findById" resultMap="WblogUserFriend" parameterType="java.lang.Integer">
+        select
+        <include refid="allColumns"></include>
+        from
+        wblog_user_friend as wu
+        where
+        wu.id =#{id}
+    </select>
+    <insert id="insertUserFriend" timeout="1" parameterType="com.wblog.user.pojo.WblogUserFriend" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        wblog_user_friend (<include refid="noIdColumns"></include>)
+        values
+        (#{nickName},#{friendNickName},now(),now())
+    </insert>
+    <update id="updateUserFriend" parameterType="com.wblog.user.pojo.WblogUserFriend">
+        update
+        wblog_user_friend
+        set
+        nick_name =#{nickName},
+        friend_nick_name = #{friendNickName}
+        modify_time = now()
+        where
+        id = #{id}
+    </update>
+</mapper>

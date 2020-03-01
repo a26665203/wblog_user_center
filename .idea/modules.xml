@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wblog_user_center.iml" filepath="$PROJECT_DIR$/wblog_user_center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-common/wblogusercommon.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-common/wblogusercommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-dao/wbloguserdao.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-dao/wbloguserdao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-domain/wbloguserdomain.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-domain/wbloguserdomain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wbloguserparent.iml" filepath="$PROJECT_DIR$/wbloguserparent/wbloguserparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-rpo/wbloguserrpo.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-rpo/wbloguserrpo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-web/wbloguserweb.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-web/wbloguserweb.iml" />
+    </modules>
+  </component>
+</project>
