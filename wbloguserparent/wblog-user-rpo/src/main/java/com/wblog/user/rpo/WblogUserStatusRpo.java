@@ -5,6 +5,6 @@ package com.wblog.user.rpo;
  */
 
 public interface WblogUserStatusRpo {
-    public void reportUserStatus(String account);
+    public boolean reportUserStatus(String account,String status);
     public int getUserStatus(String account);
 }

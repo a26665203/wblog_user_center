@@ -12,17 +12,21 @@ public class WblogUserStatusRpoImpl implements WblogUserStatusRpo {
     Logger logger = LoggerFactory.getLogger(WblogUserStatusRpoImpl.class);
 
     @Override
-    public void reportUserStatus(String account) {
+    public boolean reportUserStatus(String account,String status) {
+        boolean result =false;
         logger.info("WblogUserStatusRpoImpl.reportUserStatus---->" + account);
         if (account == null || "".equals(account)) {
-            return;
+            return result;
         }
         try {
             //30分钟过期
-            RedisUtil.setEx(CommonConstant.WBLOB_USER_STATUS + account, "1", 1800);
+            RedisUtil.setEx(CommonConstant.WBLOB_USER_STATUS + account, status, 1800);
+            result =true;
+            return result;
         } catch (Exception e) {
             logger.error("WblogUserStatusRpoImpl.reportUserStatus.error-->{}", e.getMessage());
         }
+        return  result;
     }
     //0代表尚未登录，1代表已经登录
     @Override

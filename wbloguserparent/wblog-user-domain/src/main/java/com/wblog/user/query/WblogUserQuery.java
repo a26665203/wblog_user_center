@@ -8,6 +8,9 @@ public class WblogUserQuery {
     Integer pageSize;
     Integer startRow;
 
+    public WblogUserQuery() {
+    }
+
     public WblogUserQuery(String userAccount, String nickName, String password, Integer pageNo, Integer pageSize) {
         this.userAccount = userAccount;
         this.nickName = nickName;

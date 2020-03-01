@@ -30,7 +30,7 @@ public class WblogUserRopImpl implements WblogUserRpo {
     //本地缓存一分钟过期
     Cache<String,String > cache = CacheBuilder.newBuilder().expireAfterWrite(1, TimeUnit.MINUTES)
             .maximumSize(500).build();
-    public WblogResult getWblogUserByAccount(final WblogUserQuery query) throws ExecutionException {
+    public WblogResult<WblogUserInfo> getWblogUserByAccount(final WblogUserQuery query) throws ExecutionException {
         WblogResult<WblogUserInfo> result = new WblogResult<WblogUserInfo>();
         logger.info("WblogUserRpoImpl.getWblogUserByAccount--->"+ JSON.toJSONString(query));
         if(query.getUserAccount()==null || "".equals(query.getUserAccount())){

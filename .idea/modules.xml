@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-dao/wbloguserdao.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-dao/wbloguserdao.iml" />
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-domain/wbloguserdomain.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-domain/wbloguserdomain.iml" />
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wbloguserparent.iml" filepath="$PROJECT_DIR$/wbloguserparent/wbloguserparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-rpc/wbloguserrpc.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-rpc/wbloguserrpc.iml" />
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-rpo/wbloguserrpo.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-rpo/wbloguserrpo.iml" />
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-web/wbloguserweb.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-web/wbloguserweb.iml" />
     </modules>

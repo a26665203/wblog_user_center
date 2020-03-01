@@ -1,6 +1,5 @@
 package com.wblog.user.rpo.impl;
 
-import com.sun.deploy.util.StringUtils;
 import com.wblog.user.constant.CommonConstant;
 import com.wblog.user.constant.WblogResult;
 import com.wblog.user.pojo.WblogUserFriend;

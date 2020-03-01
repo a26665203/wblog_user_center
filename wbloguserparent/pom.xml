@@ -13,6 +13,7 @@
         <module>wblog-user-common</module>
         <module>wblog-user-dao</module>
         <module>wblog-user-rpo</module>
+        <module>wblog-user-rpc</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
@@ -222,7 +223,36 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>2.2.1.RELEASE</version>
             </dependency>
-
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.9</version>
+        </dependency>
+        <!-- dubbo -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.7</version>
+<!--            &lt;!&ndash;排除不需要的依赖&ndash;&gt;-->
+<!--            <exclusions>-->
+<!--                &lt;!&ndash;上面已经配置spring依赖，此处排除dubbo默认的spring依赖&ndash;&gt;-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.springframework</groupId>-->
+<!--                    <artifactId>spring</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+        <!--dubbo客户端框架的依赖-->
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.11.3</version>
+        </dependency>
 
     </dependencies>
 

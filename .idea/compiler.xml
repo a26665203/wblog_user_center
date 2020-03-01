@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wbloguserdomain" />
+        <module name="wbloguserrpc" />
+        <module name="wbloguserdao" />
         <module name="wblogusercommon" />
         <module name="wbloguserrpo" />
         <module name="wbloguserweb" />
-        <module name="wbloguserdao" />
+        <module name="wbloguserdomain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,8 +19,8 @@
       <module name="wbloguserdao" target="1.5" />
       <module name="wbloguserdomain" target="1.5" />
       <module name="wbloguserparent" target="1.5" />
-      <module name="wbloguserrpc" target="1.5" />
-      <module name="wbloguserrpo" target="6" />
+      <module name="wbloguserrpc" target="1.8" />
+      <module name="wbloguserrpo" target="8" />
       <module name="wbloguserweb" target="1.7" />
     </bytecodeTargetLevel>
   </component>

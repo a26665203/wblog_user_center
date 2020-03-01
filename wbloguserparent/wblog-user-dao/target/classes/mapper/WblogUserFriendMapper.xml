@@ -71,4 +71,7 @@
         where
         id = #{id}
     </update>
+    <delete id="deleteUserFriend" timeout="1">
+        delete from wblog_user_friend as wu where wu.nick_name = #{nickName} and wu.friend_nick_name = #{friendName}
+    </delete>
 </mapper>

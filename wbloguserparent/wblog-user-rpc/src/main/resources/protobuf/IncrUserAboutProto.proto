@@ -1,0 +1,13 @@
+syntax = "proto3";
+option java_package = "com.wblog.proto";
+option java_outer_classname = "IncrUserAboutProto";
+import "google/protobuf/timestamp.proto";
+ message incrUserAboutReq {
+    string reqName = 1;
+    string nickName = 2;
+ }
+ message incrUserAboutRes{
+    int32 code = 1;
+    string desc =2;
+    int32 result = 3;
+ }
