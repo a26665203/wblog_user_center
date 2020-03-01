@@ -26,7 +26,7 @@ public class WblogUserFriendRpoImpl implements WblogUserFriendsRpo {
             .maximumSize(2000).build();
     @Override
     public WblogResult<String> addFriend(WblogUserFriend wblogUserFriend) {
-        WblogResult<String> result = new WblogResult<>();
+        WblogResult<String> result = new WblogResult<String>();
         logger.info("WblogUserFriendRpoImpl.addFriend---->"+ JSON.toJSONString(wblogUserFriend));
         try{
             if(wblogUserFriend == null || wblogUserFriend.getFriendNickName()==null||wblogUserFriend.getFriendNickName().equals("")){
