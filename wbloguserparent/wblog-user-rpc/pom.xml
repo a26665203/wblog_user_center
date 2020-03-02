@@ -11,13 +11,6 @@
 
     <artifactId>wblog-user-rpc</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-        <groupId>com.hugo.wblog</groupId>
-        <artifactId>wblog-user-rpo</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
