@@ -1453,7 +1453,7 @@ public final class WblogUserProto {
       WblogUserOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use WblogUser.newBuilder() to construct.
-    private WblogUser(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    public WblogUser(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
     public WblogUser() {
@@ -1476,7 +1476,7 @@ public final class WblogUserProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WblogUser(
+    public WblogUser(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
