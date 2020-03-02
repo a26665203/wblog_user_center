@@ -1,8 +1,6 @@
 package com.wblog.user.rpc;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.wblog.user.constant.WblogResult;
-import com.wblog.user.pojo.WblogUserFriend;
 
 public interface WblogUserFriendRpc {
     /**
