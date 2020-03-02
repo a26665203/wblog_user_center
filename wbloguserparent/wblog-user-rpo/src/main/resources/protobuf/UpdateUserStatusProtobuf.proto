@@ -1,0 +1,13 @@
+syntax = "proto3";
+option java_package = "com.wblog.proto";
+option java_outer_classname = "UpdateUserStatusProto";
+import "google/protobuf/timestamp.proto";
+ message updateUserStatusReq {
+    string nickName = 1;
+    int64 status = 2;
+ }
+ message updateUserStatusRes{
+    int64 code = 1;
+    string desc =2;
+    bool result = 3;
+ }

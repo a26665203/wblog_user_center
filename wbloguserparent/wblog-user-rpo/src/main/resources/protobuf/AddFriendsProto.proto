@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.wblog.proto";
+option java_outer_classname = "AddFriendProto";
+import "google/protobuf/timestamp.proto";
+
+message addFriendReq {
+    string nickName = 1;
+    string friendNickName = 2;
+}
+message addFriendRes{
+    string result = 1;
+    int32 code = 2;
+    string desc = 3;
+}

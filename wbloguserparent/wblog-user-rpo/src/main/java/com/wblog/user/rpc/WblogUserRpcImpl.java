@@ -1,4 +1,4 @@
-package com.wblog.user.rpc.impl;
+package com.wblog.user.rpc;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.wblog.proto.WblogUserProto;
