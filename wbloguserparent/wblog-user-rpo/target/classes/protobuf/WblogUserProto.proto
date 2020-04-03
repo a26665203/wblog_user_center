@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option java_package = "com.wblog.proto";
+option java_outer_classname = "WblogUserProto";
+import "google/protobuf/timestamp.proto";
+
+message getUserByAccountReq {
+    string userAccount = 1;
+}
+message getUserByAccountRes{
+    WblogUser result = 1;
+    int32 code = 2;
+    string desc = 3;
+}
+message WblogUser{
+    string userAccount = 1;
+    string userPassword = 2;
+    string nickName = 3;
+    string email = 4;
+    string phone = 5;
+    int32 userRole = 6;
+    int32 id = 7;
+}
+message insertUserReq{
+    WblogUser user = 1;
+}
+message insertUserRes{
+    int32 code =1;
+    string desc= 2;
+    int32 result =3;
+}
+message updateUserReq{
+    WblogUser user = 1;
+}
+message updateUserRes{
+    int32 code =1;
+    string desc= 2;
+    int32 result =3;
+}

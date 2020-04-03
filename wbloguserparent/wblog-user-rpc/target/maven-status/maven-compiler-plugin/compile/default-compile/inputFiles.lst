@@ -1,0 +1,12 @@
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/GetFriendProto.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/DecrUserAboutProto.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/IncrUserAboutProto.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/user/rpc/UserOnlineReportRpc.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/GetUserAboutReq.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/user/rpc/WblogUserRpc.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/user/rpc/WblogUserFriendRpc.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/UserOnlineStatusProto.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/UpdateUserStatusProto.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/AddFriendProto.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/user/rpc/WblogUserAboutRpc.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-rpc/src/main/java/com/wblog/proto/WblogUserProto.java

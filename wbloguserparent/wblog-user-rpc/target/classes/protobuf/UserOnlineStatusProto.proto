@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.wblog.proto";
+option java_outer_classname = "UserOnlineStatusProto";
+import "google/protobuf/timestamp.proto";
+
+message reportUserStatusReq{
+    string account =1;
+    string status =2;
+}
+message reportUserStatusRes{
+    bool result = 1;
+}
+message getUserStatusReq{
+    string account = 1;
+}
+message getUserStatusRes{
+    int32 result =1;
+}
