@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-rpc/wbloguserrpc.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-rpc/wbloguserrpc.iml" />
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-rpo/wbloguserrpo.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-rpo/wbloguserrpo.iml" />
       <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-web/wbloguserweb.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-web/wbloguserweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbloguserparent/wblog-user-web-final/wbloguserwebfinal.iml" filepath="$PROJECT_DIR$/wbloguserparent/wblog-user-web-final/wbloguserwebfinal.iml" />
     </modules>
   </component>
 </project>

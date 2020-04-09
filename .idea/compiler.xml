@@ -9,6 +9,7 @@
         <module name="wbloguserrpc" />
         <module name="wbloguserdao" />
         <module name="wblogusercommon" />
+        <module name="wbloguserwebfinal" />
         <module name="wbloguserrpo" />
         <module name="wbloguserweb" />
         <module name="wbloguserdomain" />
@@ -22,6 +23,7 @@
       <module name="wbloguserrpc" target="1.8" />
       <module name="wbloguserrpo" target="8" />
       <module name="wbloguserweb" target="1.7" />
+      <module name="wbloguserwebfinal" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

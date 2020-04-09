@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="wbloguserweb:war exploded">
-    <output-path>$PROJECT_DIR$/wbloguserparent/wblog-user-web/target/wblog-user-web</output-path>
+  <artifact type="exploded-war" name="wbloguserwebfinal:war exploded">
+    <output-path>$PROJECT_DIR$/wbloguserparent/wblog-user-web-final/target/wblog-user-web-final</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>wbloguserweb</module>
+        <module>wbloguserwebfinal</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="wbloguserweb" />
+          <element id="module-output" name="wbloguserwebfinal" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="wblog-user-rpo-1.0-SNAPSHOT.jar">
@@ -33,9 +33,6 @@
           <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.0.18" />
           <element id="library" level="project" name="Maven: com.google.j2objc:j2objc-annotations:1.1" />
           <element id="library" level="project" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" />
-          <element id="archive" name="wblog-user-rpc-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="wbloguserrpc" />
-          </element>
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.14.RELEASE" />
@@ -75,12 +72,15 @@
           <element id="library" level="project" name="Maven: com.101tec:zkclient:0.10" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.3" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+          <element id="archive" name="wblog-user-rpc-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="wbloguserrpc" />
+          </element>
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/wbloguserparent/wblog-user-web/target/wblog-user-web/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/wbloguserparent/wblog-user-web-final/target/wblog-user-web-final/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="wbloguserweb/web/Web" />
+      <element id="javaee-facet-resources" facet="wbloguserwebfinal/web/Web" />
     </root>
   </artifact>
 </component>
