@@ -44,7 +44,7 @@
     <!-- 4. 视图定位到/WEB/INF/jsp 这个目录下，如果没有试图定位到/WEB/INF/jsp文件夹，静态资源默认加载为在/webapp下的静态文件，而非/WEB-INF下。-->
     <!-- 视图解析-html -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/" />
+        <property name="templateLoaderPath" value="/" />
         <property name="defaultEncoding" value="utf-8" />
         <property name="freemarkerSettings">
             <props>
