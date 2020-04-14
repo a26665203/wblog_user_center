@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class TestController {
-    @RequestMapping("/test")
+    @RequestMapping("**/test")
     public String toChat(){
         return "test";
     }
-    @RequestMapping("/index")
+    @RequestMapping("**/index")
     public String toIndex(){
         return "index";
     }
