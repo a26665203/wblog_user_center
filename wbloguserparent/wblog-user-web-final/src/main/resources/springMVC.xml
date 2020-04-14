@@ -42,19 +42,9 @@
     <mvc:default-servlet-handler />
 
     <!-- 4. 视图定位到/WEB/INF/jsp 这个目录下，如果没有试图定位到/WEB/INF/jsp文件夹，静态资源默认加载为在/webapp下的静态文件，而非/WEB-INF下。-->
-
-    <!-- 视图解析-jsp -->
-    <bean
-            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass"
-                  value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/jsp/" />
-        <property name="suffix" value=".jsp" />
-        <property name="order" value="2" />
-    </bean>
     <!-- 视图解析-html -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="" />
+        <property name="templateLoaderPath" value="/WEB-INF/" />
         <property name="defaultEncoding" value="utf-8" />
         <property name="freemarkerSettings">
             <props>
@@ -70,7 +60,17 @@
         </property>
     </bean>
     <bean id="freemarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="contentType" value="text/html;charset=UTF-8" />
-        <property name="order" value="1" />
+        <property name="suffix" value=".html" />
+        <property name="order" value="0"></property>
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+    </bean>
+    <!-- 视图解析-jsp -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+        <property name="order" value="2" />
     </bean>
 </beans>
