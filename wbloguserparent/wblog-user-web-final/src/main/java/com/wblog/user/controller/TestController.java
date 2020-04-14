@@ -9,4 +9,9 @@ public class TestController {
     public String toChat(){
         return "test";
     }
+    @RequestMapping("/index")
+    public String toIndex(){
+        return "index";
+    }
 }
+

@@ -18,7 +18,7 @@
       在配置文件中使用<context:annotationconfig/>之前，必须在 <beans> 元素中声明 context 命名空间<context:component-scan/>。
       2）是对包进行扫描，实现注释驱动Bean定义，同时将bean自动注入容器中使用。即解决了@Controller标识的类的bean的注入和使用。
    -->
-
+    <context:annotation-config></context:annotation-config>
 
     <!-- context:component-scan的作用是告诉Spring，Spring能管理bean都放在com.how2java.controller这个包下
      context:component-scan配置项不但启用了对类包进行扫描以实施注释驱动 Bean 定义的功能，同时还启用了注释驱动自动注入的功能（即还隐式地在内部注册了 AutowiredAnnotationBeanPostProcessor 和 CommonAnnotationBeanPostProcessor），
@@ -68,7 +68,7 @@
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
                   value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="prefix" value="/" />
         <property name="suffix" value=".jsp" />
         <property name="order" value="2" />
     </bean>
