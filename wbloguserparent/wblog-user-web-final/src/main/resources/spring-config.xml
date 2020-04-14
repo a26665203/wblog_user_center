@@ -13,7 +13,6 @@
     <context:property-placeholder ignore-resource-not-found="true" location="classpath*:*.properties"/>
     <import resource="spring-jdbc.xml"/>
     <import resource="spring-service.xml"/>
-    <import resource="springMVC.xml"/>
     <!--定义了提供方应用信息，用于计算依赖关系；在 dubbo-admin 或 dubbo-monitor 中会显示这个名字，方便辨识-->
     <dubbo:application name="wblog-user-center" owner="hzj" organization="wb"/>
 
