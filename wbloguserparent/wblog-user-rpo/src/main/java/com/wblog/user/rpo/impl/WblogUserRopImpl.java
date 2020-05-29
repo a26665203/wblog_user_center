@@ -94,7 +94,7 @@ public class WblogUserRopImpl implements WblogUserRpo {
         }catch (Exception e){
             logger.error("WblogUserRpoImpl.insertWblogUser.error:{}",e);
             result.setCode(400);
-            result.setDesc(e.getMessage());
+            result.setDesc("注册失败，昵称或者账号重复");
             return result;
         }
     }

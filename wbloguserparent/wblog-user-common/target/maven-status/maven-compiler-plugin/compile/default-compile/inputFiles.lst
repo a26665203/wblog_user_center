@@ -3,5 +3,6 @@
 /Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-common/src/main/java/com/wblog/user/enums/WblogUserStatusEnum.java
 /Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-common/src/main/java/com/wblog/user/util/PropertiesUtil.java
 /Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-common/src/main/java/com/wblog/user/util/RedisUtil.java
+/Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-common/src/main/java/com/wblog/user/util/EmailUtil.java
 /Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-common/src/main/java/com/wblog/user/constant/CommonConstant.java
 /Users/hezijian/Desktop/wblog_user_center/wbloguserparent/wblog-user-common/src/main/java/com/wblog/user/util/MD5Utils.java

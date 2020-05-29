@@ -1,7 +1,9 @@
 com/wblog/user/query/WblogUserQuery.class
 com/wblog/user/pojo/WblogUser.class
+com/wblog/user/dto/WblogComment.class
 com/wblog/user/pojo/WblogUserFriend.class
 com/wblog/user/dto/WblogUserInfo.class
 com/wblog/user/query/WblogUserStatusQuery.class
 com/wblog/user/query/WblogUserFriendQuery.class
+com/wblog/user/dto/WblogContentShow.class
 com/wblog/user/pojo/WblogUserStatus.class

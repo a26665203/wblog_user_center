@@ -1,9 +1,12 @@
 package com.wblog.user.util;
 
+import com.alibaba.dubbo.common.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.util.RedisOutputStream;
+
+import javax.swing.*;
 
 public class RedisUtil {
     public static Logger logger = LoggerFactory.getLogger(RedisUtil.class);
@@ -125,6 +128,7 @@ public class RedisUtil {
         catch (Exception e){
             logger.error("Redis.hdel.error--->{}",e);
         }
+
     }
     public static void hset(String key ,String field,String value){
         Jedis jedis = null;
@@ -132,8 +136,10 @@ public class RedisUtil {
             jedis = RedisPool.getJedis();
             jedis.hset(key,field,value);
         }catch (Exception e){
+            RedisPool.returnBrokenResource(jedis);
             logger.error("Redis.hset.errpr---->{}",e);
         }
+        RedisPool.returnBrokenResource(jedis);
     }
 
     public static String hget(String key,String field){
@@ -142,11 +148,61 @@ public class RedisUtil {
         try{
             jedis = RedisPool.getJedis();
             result = jedis.hget(key,field);
-            return result;
         }catch (Exception e){
             logger.error("RedisUtil.hget.error-->{}",e);
+            RedisPool.returnBrokenResource(jedis);
             return result;
         }
+        RedisPool.returnBrokenResource(jedis);
+        return result;
     }
-
+    public static long incr(String key){
+        Jedis jedis = null;
+        long result= 0;
+        try{
+            jedis = RedisPool.getJedis();
+            result= jedis.incr(key);
+        }catch (Exception e){
+            logger.error("RedisUtil.incr.error-->{}",e);
+            RedisPool.returnBrokenResource(jedis);
+        }
+        RedisPool.returnBrokenResource(jedis);
+        return result;
+    }
+    public static long setNx(String key, String value){
+        Jedis jedis = null;
+        long result = 0;
+        try{
+            jedis = RedisPool.getJedis();
+             result = jedis.setnx(key, value);
+        }catch (Exception e){
+            RedisPool.returnBrokenResource(jedis);
+        }
+        RedisPool.returnBrokenResource(jedis);
+        return result;
+    }
+    public static String lock(String key,String value){
+        Jedis jedis = null;
+        String result ="";
+        try{
+            jedis = RedisPool.getJedis();
+            result = jedis.set(key, value, "NX", "PX", 3000);
+        }catch (Exception e){
+            RedisPool.returnBrokenResource(jedis);
+        }
+        RedisPool.returnBrokenResource(jedis);
+        return result;
+    }
+    public static long decr(String key){
+        Jedis jedis =null;
+        long result= 0;
+        try{
+            jedis = RedisPool.getJedis();
+            result=jedis.decr(key);
+        }catch (Exception e){
+            RedisPool.returnBrokenResource(jedis);
+        }
+        RedisPool.returnBrokenResource(jedis);
+        return result;
+    }
 }

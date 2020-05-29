@@ -11,6 +11,7 @@
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
      http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <context:property-placeholder ignore-resource-not-found="true" location="classpath*:*.properties"/>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
     <import resource="spring-jdbc.xml"/>
     <import resource="spring-service.xml"/>
     <!--定义了提供方应用信息，用于计算依赖关系；在 dubbo-admin 或 dubbo-monitor 中会显示这个名字，方便辨识-->
@@ -20,12 +21,14 @@
     <dubbo:registry address="zookeeper://localhost:2181"/>
 
     <!-- 用dubbo协议在提供方服务器的20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="20880" />
+    <dubbo:protocol name="dubbo" port="20885" />
 
     <!--使用 dubbo 协议实现定义好的 api.PermissionService 接口-->
     <dubbo:service interface="com.wblog.user.rpc.UserOnlineReportRpc" ref="UserOnlineReportRpc" protocol="dubbo"/>
     <dubbo:service interface="com.wblog.user.rpc.WblogUserRpc" ref="WblogUserRpc" protocol="dubbo"/>
     <dubbo:service interface="com.wblog.user.rpc.WblogUserFriendRpc" ref="WblogUserFriendRpc" protocol="dubbo"/>
     <dubbo:service interface="com.wblog.user.rpc.WblogUserAboutRpc" ref="WblogUserAboutRpc" protocol="dubbo"/>
-
+    <dubbo:reference interface="com.wblog.content.rpc.WblogCommentRpc" id="wblogCommentRpc"/>
+    <dubbo:reference interface="com.wblog.content.rpc.WblogContentRpc" id="wblogContentRpc"/>
+    <dubbo:reference interface="com.wblog.content.rpc.WblogMsgRpc" id="wblogMsgRpc"/>
 </beans>

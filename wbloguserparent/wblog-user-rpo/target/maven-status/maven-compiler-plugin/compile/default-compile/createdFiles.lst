@@ -1,4 +1,6 @@
+com/wblog/user/rpo/WblogExecuteService.class
 com/wblog/user/rpo/WblogUserAboutRpo.class
+com/wblog/user/rpc/WblogExecuteServiceImpl.class
 com/wblog/user/rpc/WblogUserAboutRpcImpl.class
 com/wblog/user/rpo/impl/WblogUserStatusRpoImpl.class
 com/wblog/user/rpo/WblogUserStatusRpo.class

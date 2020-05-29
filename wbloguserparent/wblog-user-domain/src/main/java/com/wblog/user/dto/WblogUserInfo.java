@@ -1,6 +1,8 @@
 package com.wblog.user.dto;
 
-public class WblogUserInfo {
+import java.io.Serializable;
+
+public class WblogUserInfo implements Serializable {
     String userAccount;
     String userPassword;
     String nickName;
@@ -8,6 +10,15 @@ public class WblogUserInfo {
     String phone;
     Integer userRole;
     Integer id;
+    String bizCode;
+
+    public String getBizCode() {
+        return bizCode;
+    }
+
+    public void setBizCode(String bizCode) {
+        this.bizCode = bizCode;
+    }
 
     public String getUserAccount() {
         return userAccount;

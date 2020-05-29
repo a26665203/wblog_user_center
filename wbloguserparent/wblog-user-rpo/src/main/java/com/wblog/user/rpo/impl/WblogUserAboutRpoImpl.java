@@ -1,5 +1,6 @@
 package com.wblog.user.rpo.impl;
 
+import com.alibaba.dubbo.common.utils.StringUtils;
 import com.wblog.user.constant.CommonConstant;
 import com.wblog.user.constant.WblogResult;
 import com.wblog.user.pojo.WblogUserFriend;
@@ -28,7 +29,7 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
                 result.setDesc("Redis方法出错");
                 return result;
             }
-            if("".equals(commentCount)){
+            if(StringUtils.isBlank(commentCount)){
                 commentCount = "0";
             }
             int mid = Integer.valueOf(commentCount)+1;
@@ -60,7 +61,7 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
                 result.setCode(400);
                 return result;
             }
-            if("".equals(commentCount)||"0".equals(commentCount)){
+            if(StringUtils.isBlank(commentCount)||"0".equals(commentCount)){
                 result.setCode(400);
                 result.setDesc("评论数已经为0");
                 return result;
@@ -94,7 +95,7 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
                 result.setCode(400);
                 return result;
             }
-            if("".equals(likeCount)){
+            if(StringUtils.isBlank(likeCount)){
                 likeCount = "0";
             }
             int mid = Integer.valueOf(likeCount) + 1;
@@ -126,7 +127,7 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
                 result.setDesc("Redis 方法错误");
                 return result;
             }
-            if("".equals(likeCount)||"0".equals(likeCount)){
+            if(StringUtils.isBlank(likeCount)||"0".equals(likeCount)){
                 result.setCode(400);
                 result.setDesc("点赞数已为0");
                 return result;
@@ -192,7 +193,7 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
                 result.setDesc("传入参数错误");
                 return result;
             }
-            if(blogCount == null || "".equals(blogCount)){
+            if(StringUtils.isBlank(blogCount)|| "0".equals(blogCount)){
                 result.setCode(400);
                 result.setDesc("微博数已为0");
                 return result;
@@ -258,7 +259,7 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
                 result.setDesc("Redis方法错误");
                 return result;
             }
-            if(fanCount == null || "".equals(fanCount)){
+            if(StringUtils.isBlank(fanCount)|| "0".equals(fanCount)){
                 result.setCode(400);
                 result.setDesc("粉丝数已为0");
                 return result;
@@ -324,7 +325,7 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
                 result.setDesc("redis 方法错误");
                 return result;
             }
-            if(likedCount == null || "".equals(likedCount)){
+            if(StringUtils.isBlank(likedCount) || "0".equals(likedCount)){
                 result.setCode(400);
                 result.setDesc("被赞数已为0");
 
@@ -512,5 +513,99 @@ public class WblogUserAboutRpoImpl implements WblogUserAboutRpo {
             result.setDesc(e.getMessage());
             return result;
         }
+    }
+
+    @Override
+    public WblogResult<String> getUserDesc(String nickName) {
+        WblogResult<String> result = new WblogResult<String>();
+        logger.info("WblogUserAboutRpoImpl.getUserDesc.nickName:{}",nickName);
+        if(nickName == null || "".equals(nickName)){
+            result.setCode(400);
+            result.setDesc("传入参数错误");
+            return result;
+        }
+        try{
+            String desc = RedisUtil.hget(CommonConstant.WBLOB_USER_ABOUT+nickName,"desc");
+            if(StringUtils.isBlank(desc)){
+                desc = "这个人太懒了,没有个性签名";
+            }
+            result.setResult(desc);
+            result.setCode(200);
+            return result;
+        }catch (Exception e){
+            logger.error("WblogUserAboutRpoImpl.getUserDesc.error------>",e);
+            result.setCode(400);
+            result.setDesc(e.getMessage());
+        }
+        return result;
+    }
+
+    @Override
+    public WblogResult<String> setUserDesc(String nickName, String desc) {
+        WblogResult<String> result = new WblogResult<>();
+        logger.info("WblogUserAboutRpoImpl.setUserDesc.nickName:{},desc:{}",nickName,desc);
+        if(nickName == null || "".equals(nickName)||StringUtils.isBlank(desc)){
+            result.setCode(400);
+            result.setDesc("传入参数错误");
+            return result;
+        }
+        try {
+            RedisUtil.hset(CommonConstant.WBLOB_USER_ABOUT+nickName,"desc",desc);
+            result.setCode(200);
+            result.setResult(desc);
+            return result;
+        }catch (Exception e){
+            logger.error("WblogUserAboutRpoImpl.setUserDesc----->",e);
+            result.setCode(400);
+            result.setDesc(e.getMessage());
+        }
+        return result;
+    }
+
+    @Override
+    public WblogResult<String> setHeadIcon(String nickName,String imageUrl) {
+        WblogResult<String> result = new WblogResult<>();
+        logger.info("WblogUserAboutRpoImpl.setUserDesc.nickName:{}",nickName);
+        if(nickName == null || "".equals(nickName)){
+            result.setCode(400);
+            result.setDesc("传入参数错误");
+            return result;
+        }
+        try{
+            RedisUtil.hset(CommonConstant.WBLOB_USER_ABOUT+nickName,"imageUrl",imageUrl);
+            result.setCode(200);
+            result.setResult(imageUrl);
+            return result;
+        }catch (Exception e){
+            logger.error("WblogUserAboutRpoImpl.setHeadIcon----->",e);
+            result.setCode(400);
+            result.setDesc(e.getMessage());
+        }
+        return result;
+    }
+
+    @Override
+    public WblogResult<String> getHeadIcon(String nickName) {
+        WblogResult<String > result = new WblogResult<>();
+        logger.info("WblogUserAboutRpoImpl.getHeadIcon.nickName:{}",nickName);
+        if(nickName == null || "".equals(nickName)){
+            result.setCode(400);
+            result.setDesc("传入参数错误");
+            return result;
+        }
+        try{
+            String imageUrl = RedisUtil.hget(CommonConstant.WBLOB_USER_ABOUT+nickName,"imageUrl");
+            if(StringUtils.isBlank(imageUrl)){
+                imageUrl = "logo.jpg";
+            }
+            result.setCode(200);
+            result.setResult(imageUrl);
+            return result;
+        }catch (Exception e){
+            logger.error("WblogUserAboutRpoImpl.getHeadIcon.error---->"+e);
+            result.setCode(400);
+            result.setDesc(e.getMessage());
+        }
+        return result;
     }
 }

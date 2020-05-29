@@ -1,6 +1,6 @@
 var ipaddress="127.0.0.1";
 //新建socket对象
-window.socket = new WebSocket("ws://"+ipaddress+":8081/ws");
+window.socket = new WebSocket("ws://"+ipaddress+":8085/ws");
 //监听netty服务器消息并打印到页面上
 socket.onmessage = function(event) {
     var datas=event.data.split(",");

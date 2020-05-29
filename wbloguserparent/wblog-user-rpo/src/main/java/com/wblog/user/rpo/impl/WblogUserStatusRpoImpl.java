@@ -20,7 +20,7 @@ public class WblogUserStatusRpoImpl implements WblogUserStatusRpo {
         }
         try {
             //30分钟过期
-            RedisUtil.setEx(CommonConstant.WBLOB_USER_STATUS + account, status, 1800);
+            RedisUtil.set(CommonConstant.WBLOB_USER_STATUS + account, status);
             result =true;
             return result;
         } catch (Exception e) {

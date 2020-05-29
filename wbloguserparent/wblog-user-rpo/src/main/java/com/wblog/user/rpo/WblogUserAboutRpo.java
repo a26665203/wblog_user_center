@@ -23,4 +23,8 @@ public interface WblogUserAboutRpo {
     public WblogResult<Integer> getFanCount(String nickName);
     public WblogResult<Integer> getLikedCount(String nickName);
     public WblogResult<Integer> getUserStatus(String nickName);
+    public WblogResult<String> getUserDesc(String nickName);
+    public WblogResult<String> setUserDesc(String nickName,String desc);
+    public WblogResult<String> setHeadIcon(String nickName,String imageUrl);
+    public WblogResult<String> getHeadIcon(String nickName);
 }

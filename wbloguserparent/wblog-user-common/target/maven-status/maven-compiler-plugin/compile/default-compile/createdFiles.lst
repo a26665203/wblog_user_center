@@ -1,4 +1,5 @@
 com/wblog/user/util/RedisUtil.class
+com/wblog/user/util/EmailUtil.class
 com/wblog/user/constant/CommonConstant.class
 com/wblog/user/util/RedisPool.class
 com/wblog/user/enums/WblogUserStatusEnum.class

@@ -3,7 +3,7 @@ package com.wblog.user.query;
 public class WblogUserQuery {
     String userAccount;
     String nickName;
-    String password;
+    String userPassword;
     Integer pageNo;
     Integer pageSize;
     Integer startRow;
@@ -14,10 +14,18 @@ public class WblogUserQuery {
     public WblogUserQuery(String userAccount, String nickName, String password, Integer pageNo, Integer pageSize) {
         this.userAccount = userAccount;
         this.nickName = nickName;
-        this.password = password;
+        this.userPassword = password;
         this.pageNo = pageNo;
         this.pageSize = pageSize;
         setStartRow();
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public void setStartRow() {

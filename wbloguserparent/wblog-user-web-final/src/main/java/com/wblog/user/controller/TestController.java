@@ -11,7 +11,7 @@ public class TestController {
     }
     @RequestMapping("/index")
     public String toIndex(){
-        return "index";
+        return "personindex";
     }
 }
 
